@@ -1,0 +1,92 @@
+[
+  {
+    "TRAILID": 1,
+    "TR_CNAME": "玉山塔塔加鞍部登山口",
+    "GUIDE_CONTENT": "玉山前鋒、玉山主峰",
+    "TR_POSITION": "南投縣信義鄉",
+    "TR_ENTRANCE": [{ "height": 2610, "x": 23.475778, "y": 120.9, "memo": "" }],
+    "TR_ALT": "2,610",
+    "URL": "https://npm.cpami.gov.tw/apply_1_2.aspx?unit=c951cdcd-b75a-46b9-8002-8ef952ec95fd"
+  },
+  {
+    "TRAILID": 2,
+    "TR_CNAME": "雪山登山口大水池",
+    "GUIDE_CONTENT": "雪山主峰、雪山東峰",
+    "TR_POSITION": "臺中市和平區",
+    "TR_ENTRANCE": [{ "height": 2153, "x": 24.3854313, "y": 121.2990604, "memo": "" }],
+    "TR_ALT": "2,153",
+    "URL": "https://npm.cpami.gov.tw/apply_1_2.aspx?unit=c951cdcd-b75a-46b9-8002-8ef952ec95fd"
+  },
+  {
+    "TRAILID": 3,
+    "TR_CNAME": "屯原登山口",
+    "GUIDE_CONTENT": "合歡越嶺古道、奇萊南華、能高安東軍",
+    "TR_POSITION": "南投縣仁愛鄉",
+    "TR_ENTRANCE": [{ "height": 1993, "x": 24.3854313, "y": 121.2990604, "memo": "" }],
+    "TR_ALT": "1,993",
+    "URL": "https://npm.cpami.gov.tw/apply_1_2.aspx?unit=c951cdcd-b75a-46b9-8002-8ef952ec95fd"
+  },
+  {
+    "TRAILID": 4,
+    "TR_CNAME": "南湖大山 勝光登山口",
+    "GUIDE_CONTENT": "(新）南湖大山,南湖大山東峰,南湖北山,南湖大山南峰,巴巴山,審馬陣山",
+    "TR_POSITION": "南投縣",
+    "TR_ENTRANCE": [{ "height": 1846, "x": 24.369933, "y": 121.34055, "memo": "" }],
+    "TR_ALT": "1,846",
+    "URL": "https://npm.cpami.gov.tw/apply_1_2.aspx?unit=c951cdcd-b75a-46b9-8002-8ef952ec95fd"
+  },
+  {
+    "TRAILID": 5,
+    "TR_CNAME": "南湖大山思源登山口",
+    "GUIDE_CONTENT": "(舊)南湖大山,南湖大山東峰,南湖北山,南湖大山南峰,巴巴山,審馬陣山",
+    "TR_ENTRANCE": [{ "height": 1922, "x": 24.391383, "y": 121.352533, "memo": "" }],
+    "TR_POSITION": "臺中市和平區",
+    "TR_ALT": "1,922",
+    "URL": "https://npm.cpami.gov.tw/apply_1_2.aspx?unit=c951cdcd-b75a-46b9-8002-8ef952ec95fd"
+  },
+  {
+    "TRAILID": 6,
+    "TR_CNAME": "北大武新登山口",
+    "GUIDE_CONTENT": "",
+    "TR_ENTRANCE": [{ "height": 1199, "x": 22.615083, "y": 120.702194, "memo": "" }],
+    "TR_POSITION": "屏東縣",
+    "TR_ALT": "1,199",
+    "URL": "https://npm.cpami.gov.tw/apply_1_2.aspx?unit=c951cdcd-b75a-46b9-8002-8ef952ec95fd"
+  },
+  {
+    "TRAILID": 7,
+    "TR_CNAME": "大霸尖山登山口",
+    "GUIDE_CONTENT": "",
+    "TR_ENTRANCE": [{ "height": 2036, "x": 24.504783, "y": 121.119333, "memo": "" }],
+    "TR_POSITION": "苗栗縣泰安鄉",
+    "TR_ALT": "2,036",
+    "URL": "https://npm.cpami.gov.tw/apply_1_2.aspx?unit=c951cdcd-b75a-46b9-8002-8ef952ec95fd"
+  },
+  {
+    "TRAILID": 8,
+    "TR_CNAME": "奇萊山登山口",
+    "GUIDE_CONTENT": "",
+    "TR_ENTRANCE": [{ "height": 3086, "x": 24.1393, "y": 121.287783, "memo": "" }],
+    "TR_POSITION": "花蓮縣秀林鄉",
+    "TR_ALT": "3,086",
+    "URL": "https://npm.cpami.gov.tw/apply_1_2.aspx?unit=c951cdcd-b75a-46b9-8002-8ef952ec95fd"
+  },
+  {
+    "TRAILID": 9,
+    "TR_CNAME": "八通關古道入口",
+    "GUIDE_CONTENT": "",
+    "TR_ENTRANCE": [{ "height": 1166, "x": 23.556317, "y": 120.9277, "memo": "" }],
+    "TR_POSITION": "南投縣信義鄉",
+    "TR_ALT": "1,166",
+    "URL": "https://npm.cpami.gov.tw/apply_1_2.aspx?unit=c951cdcd-b75a-46b9-8002-8ef952ec95fd"
+  },
+  {
+    "TRAILID": 10,
+    "TR_CNAME": "孫海橋",
+    "GUIDE_CONTENT": "往七彩、六順",
+    "TR_ENTRANCE": [{ "height": 458, "x": 23.787283, "y": 121.011317, "memo": "" }],
+    "TR_POSITION": "南投縣信義鄉",
+    "TR_ALT": "458",
+    "URL": "https://npm.cpami.gov.tw/apply_1_2.aspx?unit=c951cdcd-b75a-46b9-8002-8ef952ec95fd"
+  }
+]

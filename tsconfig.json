@@ -15,6 +15,16 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "utilis/context.jsx",
+    "utilis/useFetch.js",
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "components/markerCluster.jsx",
+    "components/trailMap.jsx",
+    "components/navBar.jsx",
+    "components/list.jsx"
+  ],
   "exclude": ["node_modules"]
 }
