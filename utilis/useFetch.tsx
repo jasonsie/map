@@ -1,24 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import proj4 from 'proj4';
+import { trail } from './type';
 
 const useFetch = () => {
   const [data, setData] = useState([{}]);
   const [prov, setProv] = useState([{}]);
 
   // 1. get the province structure for the sideebar
-  function get_province_structure(res) {
+  function get_province_structure(res: trail[]) {
     // [{ctg:[1,2,3...]}]
-    let pronvLs = [];
+    let pronvLs: [] = [];
     const rule = /(\D{2}縣{1})|(\D{2}市{1})/g;
-
     res.forEach((each) => {
-      const TR_POSITION = each['TR_POSITION'].match(rule)[0];
+      let TR_POSITION = each['TR_POSITION'].match(rule)[0];
       const TR_CNAME = each['TR_CNAME'];
       const TR_ENTRANCE = each['TR_ENTRANCE'];
 
-      // console.log(`TR_POSITION`, TR_POSITION);
-
       const idx = pronvLs.findIndex((each) => Object.keys(each)[0] === TR_POSITION);
+
       if (idx == -1) {
         const provObj = { [TR_POSITION]: [[TR_CNAME, TR_ENTRANCE]] };
         pronvLs.push(provObj);
@@ -30,7 +29,7 @@ const useFetch = () => {
   }
 
   // transforming coordination
-  function transform_tm2_to_WGS84(res) {
+  function transform_tm2_to_WGS84(res: trail[]) {
     proj4.defs([
       [
         'EPSG:4326',
@@ -46,7 +45,7 @@ const useFetch = () => {
     const EPSG3826 = new proj4.Proj('EPSG:3826'); //TWD97 121分帶
     const EPSG3828 = new proj4.Proj('EPSG:3828'); //TWD67 121分帶
     const EPSG4326 = new proj4.Proj('EPSG:4326'); //WGS84
-    function paringCoord(entrance) {
+    function paringCoord(entrance: any) {
       const newCoord = proj4(EPSG3828, EPSG4326, [entrance['x'], entrance['y']]);
       return { ...entrance, x: newCoord[1], y: newCoord[0] };
     }
@@ -82,8 +81,8 @@ const useFetch = () => {
 
     Promise.all([staticData, apiData])
       .then(([staticOne, apiOne]) => {
-        const { staticData } = staticOne;
-        const { apiData } = apiOne;
+        const { staticData }: any = staticOne;
+        const { apiData }: any = apiOne;
         const getProv = get_province_structure([...staticData, ...apiData]);
 
         setData([...staticData, ...apiData]);

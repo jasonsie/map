@@ -1,14 +1,15 @@
 import React, { useEffect, useState, useRef, useContext, useLayoutEffect } from 'react';
+import dynamic from 'next/dynamic';
 // leaflet related
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css';
 import 'leaflet-defaulticon-compatibility';
-import * as L from 'leaflet';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, useMapEvents } from 'react-leaflet';
 import { useMap, useMapEvent } from 'react-leaflet/hooks';
-import MarkerClusterGroup from 'react-leaflet-markercluster';
 // components
-import MarkerCluster from './markerCluster';
+import Markers from './markers';
+const MarkerCluster = dynamic(() => import('./markerCluster'), { ssr: false });
+
 // css
 import css from '../styles/All.module.scss';
 // context
@@ -27,31 +28,39 @@ const SetViewOnClick = ({ animateRef }) => {
   return null;
 };
 
-// 點擊座標，recenter
+// 1. 點擊座標，recenter
+// 2. sidebar 的 zoom in
+// 3. if the zoom scale === 18, marker cluster shouild be invalid
 const RerenderMap = (props) => {
   const { children, data } = props;
   const { mapPoist, sideBarPoist, markerArray } = data;
+  const [zoom, setZoom] = useState(18);
   const map = useMap();
+
+  const mapEvents = useMapEvents({
+    zoomend: () => {
+      setZoom(mapEvents.getZoom());
+    },
+  });
 
   // recenter
   useEffect(() => {
-    map.setView(mapPoist, 12);
+    map.setView(mapPoist, 18);
   }, [mapPoist]);
 
   // popup effect from the sidebar
-  useLayoutEffect(() => {
-    if (markerArray[0] === undefined || sideBarPoist === undefined) return;
-    const get_marker = markerArray.find((each) => each._latlng.lat === sideBarPoist[1][0]['x']);
-    get_marker.bindPopup(`<Card>${sideBarPoist[0]}</Card>`).openPopup();
-  }, [sideBarPoist]);
+  // useLayoutEffect(() => {
+  //   if (markerArray[0] === undefined || sideBarPoist === undefined) return;
+  //   const get_marker = markerArray.find((each) => each._latlng.lat === sideBarPoist[1][0]['x']);
 
-  return children;
+  //   get_marker.bindPopup(`<Card>${sideBarPoist[0]}</Card>`).openPopup();
+  // }, [sideBarPoist]);
+  return <MarkerCluster zoom={zoom}>{children}</MarkerCluster>;
 };
 
 const TrailMap = (props) => {
   const { data } = props;
-  const { allData } = data;
-  const mapRef = useRef(null);
+  const { allData, mapRef } = data;
   const animateRef = useRef(false);
   const { state } = useContext(Context);
   const [markerArray, setMarkerArray] = useState([]);
@@ -64,9 +73,10 @@ const TrailMap = (props) => {
   return (
     <>
       <MapContainer
-        whenReady={(map) => {
-          mapRef.current = map;
-        }}
+        // whenReady={(map) => {
+        //   mapRef.current = map;
+        // }}
+        ref={mapRef}
         className={css.map}
         center={[crtDot['x'], crtDot['y']]}
         zoom={8}
@@ -83,11 +93,10 @@ const TrailMap = (props) => {
             markerArray: markerArray,
           }}
         >
-          {/* <MarkerClusterGroup> */}
           {allData.map((entrances) =>
             entrances['TR_ENTRANCE'].map((dot) => (
               <>
-                <MarkerCluster
+                <Markers
                   entrances={entrances}
                   dot={dot}
                   setCrtDot={setCrtDot}
@@ -96,12 +105,10 @@ const TrailMap = (props) => {
               </>
             )),
           )}
-          {/* </MarkerClusterGroup> */}Ï
         </RerenderMap>
         <SetViewOnClick animateRef={animateRef} />
       </MapContainer>
     </>
   );
 };
-
 export default TrailMap;

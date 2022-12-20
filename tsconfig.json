@@ -17,14 +17,15 @@
   },
   "include": [
     "utilis/context.jsx",
-    "utilis/useFetch.js",
+    "utilis/useFetch.tsx",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "components/markerCluster.jsx",
+    "components/markerCluster.tsx",
     "components/trailMap.jsx",
     "components/navBar.jsx",
-    "components/list.jsx"
+    "components/list.jsx",
+    "components/markers.jsx"
   ],
   "exclude": ["node_modules"]
 }
