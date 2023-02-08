@@ -1,6 +1,6 @@
 # A. Introduction
 
-![image](illus.gif)
+![image](illus.png)
 
 ### a.1 ENV : React + Next + Typescript + MUI
 
